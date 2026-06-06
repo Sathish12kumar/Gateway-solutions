@@ -1,6 +1,8 @@
+import ProductModel from "../models/ProductModel.js";
 import userModel from "../models/UserModel.js";
 
 export const getUsers = async (req, res) => {
+  // ProductModel
   try {
     const result = await userModel.find();
     res.json(result);
