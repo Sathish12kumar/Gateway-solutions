@@ -9,12 +9,18 @@ const Navbar = () => {
       <div className="logo">sathish</div>
       <ul>
         {navs.map((nav, idx) => (
-          <li key={idx}>{nav.title}</li>
+          <li key={idx}>
+            <a href={nav.path}>{nav.title}</a>
+          </li>
         ))}
       </ul>
       <div className="btns">
-        <button>cart</button>
-        <button>profile</button>
+        <button>
+          <i className="fa-solid fa-cart-flatbed"></i>
+        </button>
+        <button>
+          <i className="fa-solid fa-circle-user"></i>
+        </button>
       </div>
     </nav>
   );
