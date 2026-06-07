@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -14,4 +15,18 @@
 
 button {
   cursor: pointer;
+}
+
+.brands {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: gray;
+  height: 100px;
+  .logo {
+    padding: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
 }
