@@ -6,11 +6,11 @@ export const RegisterUser = async (req, res) => {
     const username = await userModel.findOne({ email: email });
 
     if (password == username.password) {
-      res.json("Password matched");
+      res.status(200).send({ msg: "success", user: username });
     } else {
       res.json("incorrect password");
     }
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ err: error.message });
   }
 };

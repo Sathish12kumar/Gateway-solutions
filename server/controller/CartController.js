@@ -3,7 +3,7 @@ import ProductModel from "../models/ProductModel.js";
 import userModel from "../models/UserModel.js";
 
 export const getCart = async (req, res) => {
-  const result = await CartModel.find();
+  const result = await CartModel.find({ user: req.params.id });
   res.send(result);
 };
 

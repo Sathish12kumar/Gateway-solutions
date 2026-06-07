@@ -6,8 +6,16 @@ import FQA from "./components/FQA";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Products from "./components/Products";
+import useCustom from "./components/useCustom";
+import { useEffect } from "react";
 
 function App() {
+  const { getProducts, getCart } = useCustom();
+  // console.log(getProducts);
+  useEffect(() => {
+    getCart();
+  });
+
   return (
     <>
       <Navbar />

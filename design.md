@@ -4,3 +4,7 @@ sliders:
 https://themes.shopify.com/themes/ignite/presets/ignite?surface_detail=themes-grid-first-row&surface_inter_position=1&surface_intra_position=2&surface_type=home
 
 product images group: https://dribbble.com/shots/16016897-Ecommerce-Website-Template-Figma
+
+frontend design:https://dribbble.com/shots/24935978-E-Shop-Electronic-E-Commerce-Website-Design
+
+https://wdt-blanca.myshopify.com/
