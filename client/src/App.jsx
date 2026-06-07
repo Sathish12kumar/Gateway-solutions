@@ -1,4 +1,6 @@
 import "./App.css";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -6,6 +8,8 @@ function App() {
     <>
       {/* <h1>hello wrold</h1> */}
       <Navbar />
+      <Home />
+      <Footer />
     </>
   );
 }

@@ -1,4 +1,3 @@
-//  Home  Laptops  Mobiles  Accessories  Offers
 export const navs = [
   {
     title: "Home",
@@ -17,3 +16,5 @@ export const navs = [
     path: "#",
   },
 ];
+
+export const logoname = "sathish";

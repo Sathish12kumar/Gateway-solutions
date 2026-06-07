@@ -3,7 +3,13 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  /* background: red; */
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 10;
+  backdrop-filter: blur(10px);
 
   ul {
     display: flex;
@@ -24,6 +30,7 @@ nav {
   .logo {
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 25px;
   }
   .btns {
     display: flex;
