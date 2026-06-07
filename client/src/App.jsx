@@ -39,6 +39,17 @@ function App() {
         </div>
       </div>
       <Products />
+      <div className="ads">
+        <div className="content">
+          <h2>Free shopping</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+            exercitationem beatae, possimus excepturi culpa ratione ullam et
+            nostrum error laudantium!
+          </p>
+          <button>shop now</button>
+        </div>
+      </div>
       <Footer />
     </>
   );
