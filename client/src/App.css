@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  --main-color: black;
+}
+
 #root {
   font-size: 20px;
+}
+
+button {
+  cursor: pointer;
 }

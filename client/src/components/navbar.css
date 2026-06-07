@@ -3,6 +3,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
+  /* background: red; */
 
   ul {
     display: flex;
@@ -10,11 +11,29 @@ nav {
     /* text-decoration: none; */
     list-style: none;
   }
+  a {
+    text-decoration: none;
+    padding: 5px;
+    color: var(--main-color);
+    /* background: red; */
+  }
   li {
+    /* background: red; */
     padding: 10px;
   }
   .logo {
     text-transform: uppercase;
     font-weight: bold;
+  }
+  .btns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    button {
+      padding: 5px;
+      border-radius: 5px;
+      border: transparent;
+      font-size: 20px;
+    }
   }
 }

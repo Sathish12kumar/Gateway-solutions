@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { navs } from "../../assects";
 import "./navbar.css";
 
@@ -10,7 +11,7 @@ const Navbar = () => {
       <ul>
         {navs.map((nav, idx) => (
           <li key={idx}>
-            <a href={nav.path}>{nav.title}</a>
+            <Link to={nav.path}>{nav.title}</Link>
           </li>
         ))}
       </ul>
