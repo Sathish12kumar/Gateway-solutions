@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const useCustom = () => {
   const url = import.meta.env.VITE_BACKEND_URL;
+  const [data, setdata] = useState([]);
 
   const addUser = async (dt) => {
     try {
@@ -76,7 +77,7 @@ const useCustom = () => {
     try {
       fetch(`${url}/product`)
         .then((res) => res.json())
-        .then((dt) => console.log(dt));
+        .then((dt) => setdata(dt));
     } catch (error) {
       console.log(error);
     }
@@ -138,6 +139,22 @@ const useCustom = () => {
       console.log(error);
     }
   };
+  const addcart = (dt) => {
+    try {
+      fetch(`${url}/cart/add`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dt),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return {
     addUser,
     updateUser,
@@ -148,6 +165,8 @@ const useCustom = () => {
     updateProduct,
     deleteProduct,
     getCart,
+    addcart,
+    data,
   };
 };
 

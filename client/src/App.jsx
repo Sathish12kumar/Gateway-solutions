@@ -14,6 +14,12 @@ import Profile from "./components/Profile";
 function App() {
   const [cartpop, setcartpop] = useState(false);
   const [profilepop, setprofilepop] = useState(false);
+  // console.log(data.slice(1, 5));
+  const { getProducts, data } = useCustom();
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <>
@@ -49,7 +55,14 @@ function App() {
           </div>
         </div>
       </div>
-      <Products />
+      <div className="trending-con">
+        <h1>Trending products</h1>
+        <div className="flex-pro">
+          {data.slice(1, 5).map((val, idx) => (
+            <Products key={idx} val={val} />
+          ))}
+        </div>
+      </div>
       <div className="ads">
         <div className="content">
           <h2>Free shopping</h2>
@@ -61,7 +74,14 @@ function App() {
           <button>shop now</button>
         </div>
       </div>
-      <Products />
+      <div className="latest-pro">
+        <h1>Reacent Products</h1>
+        <div className="flex-pro">
+          {data.slice(5, 9).map((val, idx) => (
+            <Products val={val} key={idx} />
+          ))}
+        </div>
+      </div>
       <FQA />
       <div className="tech-talk">
         <div className="title">

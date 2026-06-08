@@ -1,23 +1,24 @@
+import { useNavigate } from "react-router-dom";
 import "./products.css";
-const Products = () => {
+const Products = ({ val }) => {
+  const changepath = useNavigate();
+
   const cartpro = () => {
     console.log("cart products");
   };
   const viewpro = () => {
     console.log("view products");
+    changepath("/product-detail");
   };
   return (
     <div className="product-demo" onClick={() => viewpro()}>
-      <img
-        src="https://imgs.search.brave.com/Gga2rIkY3a14N9wY3pfPJQA3m1NAwsJZamUpgFjbLBs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9jb3NtaWMtY29s/b3JmdWwtbGV0dGVy/LXMtaWxsdXN0cmF0/aW9uXzk0MTQ5My00/ODcuanBnP3NlbXQ9/YWlzX2luY29taW5n/Jnc9NzQwJnE9ODA"
-        alt=""
-      />
+      <img src={val?.image[0]} alt="" />
       <div className="info">
         <div className="category">
-          <span>category</span>
-          <div className="price">₹ 3000</div>
+          <span>{val?.category}</span>
+          <div className="price">₹ {val?.price}</div>
         </div>
-        <div className="name">lenovo</div>
+        <div className="name">{val?.name}</div>
       </div>
       <div className="btns">
         <button onClick={() => cartpro()}>
