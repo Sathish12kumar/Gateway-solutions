@@ -1,34 +1,22 @@
 import React, { useState } from "react";
 import useCustom from "./useCustom";
-import "./auth.css";
 import { Link } from "react-router-dom";
 
-const AuthLayout = () => {
-  const url = import.meta.env.VITE_BACKEND_URL;
-  const { addUser } = useCustom();
+const Register = () => {
   const [userdt, setuserdt] = useState({
-    name: "",
     email: "",
     password: "",
   });
-  console.log(url);
-
+  const { registerUser } = useCustom();
   const formsubmit = () => {
-    console.log(userdt);
-    addUser(userdt);
+    registerUser(userdt);
   };
   return (
     <div className="authlayout">
+      <div className="imgs"></div>
       <div className="content-form">
-        <h1>login form</h1>
+        <h1>Register form</h1>
         <div className="grid-con-form">
-          <input
-            type="text"
-            placeholder="enter name"
-            onChange={(e) =>
-              setuserdt((val) => ({ ...val, name: e.target.value }))
-            }
-          />
           <input
             type="email"
             placeholder="enter email"
@@ -43,16 +31,14 @@ const AuthLayout = () => {
               setuserdt((val) => ({ ...val, password: e.target.value }))
             }
           />
-
           <button onClick={formsubmit}>submit</button>
           <div className="link">
-            Already registered? <Link to={"/register"}>Log in</Link> here.
+            Don't have an account? <Link to={"/login"}>Sign up.</Link>
           </div>
         </div>
       </div>
-      <div className="imgs"></div>
     </div>
   );
 };
 
-export default AuthLayout;
+export default Register;

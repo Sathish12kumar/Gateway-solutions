@@ -60,7 +60,13 @@ const useCustom = () => {
         body: JSON.stringify(dt),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data))
+        .then((data) => {
+          if (data?.msg == "success") {
+            localStorage.setItem("name", data.user.name);
+            localStorage.setItem("mail", data.user.email);
+            localStorage.setItem("userid", data.user._id);
+          }
+        })
         .catch((err) => console.log(err));
     } catch (error) {
       console.log(error);

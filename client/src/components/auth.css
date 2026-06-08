@@ -1,0 +1,47 @@
+.authlayout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 20px;
+  height: 100dvh;
+  padding: 10px;
+
+  input {
+    height: 50px;
+    width: 350px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid gray;
+  }
+  .grid-con-form {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .link {
+    text-align: center;
+    a {
+      color: blue;
+    }
+  }
+  input::placeholder {
+    text-transform: capitalize;
+  }
+  .content-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+    height: 300px;
+  }
+  .imgs {
+    height: calc(100dvh - 20px);
+    width: 100%;
+    border: 1px solid;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+}

@@ -7,18 +7,19 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Products from "./components/Products";
 import useCustom from "./components/useCustom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Cart from "./components/Cart";
+import Profile from "./components/Profile";
 
 function App() {
-  const { getProducts, getCart } = useCustom();
-  // console.log(getProducts);
-  useEffect(() => {
-    getCart();
-  });
+  const [cartpop, setcartpop] = useState(false);
+  const [profilepop, setprofilepop] = useState(false);
 
   return (
     <>
-      <Navbar />
+      <Navbar setcartpop={setcartpop} setprofilepop={setprofilepop} />
+      {cartpop && <Cart setcartpop={setcartpop} />}
+      {profilepop && <Profile setprofilepop={setprofilepop} />}
       <Home />
       <Brands />
       <div className="grid-con">

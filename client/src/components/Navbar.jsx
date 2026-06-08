@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { navs } from "../../assects";
 import "./navbar.css";
+import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ setcartpop, setprofilepop }) => {
   console.log(navs);
 
   return (
@@ -16,10 +17,10 @@ const Navbar = () => {
         ))}
       </ul>
       <div className="btns">
-        <button>
+        <button onClick={() => setcartpop((val) => !val)}>
           <i className="fa-solid fa-cart-flatbed"></i>
         </button>
-        <button>
+        <button onClick={() => setprofilepop((val) => !val)}>
           <i className="fa-solid fa-circle-user"></i>
         </button>
       </div>
