@@ -8,17 +8,20 @@ const Products = ({ val }) => {
   };
   const viewpro = () => {
     console.log("view products");
-    changepath("/product-detail");
+    changepath(`/product-detail/${val?._id}`);
   };
+
   return (
-    <div className="product-demo" onClick={() => viewpro()}>
+    <div className="product-demo">
       <img src={val?.image[0]} alt="" />
       <div className="info">
         <div className="category">
           <span>{val?.category}</span>
           <div className="price">₹ {val?.price}</div>
         </div>
-        <div className="name">{val?.name}</div>
+        <div className="name" onClick={() => viewpro()}>
+          {val?.name}
+        </div>
       </div>
       <div className="btns">
         <button onClick={() => cartpro()}>

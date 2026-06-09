@@ -17,9 +17,11 @@ const products = {
   description: {
     type: String,
   },
-  image: {
-    type: String,
-  },
+  image: [
+    {
+      type: String,
+    },
+  ],
   stock: {
     type: Number,
     default: 0,
@@ -36,6 +38,10 @@ const cartschema = new mongoose.Schema({
     required: true,
   },
   items: [products],
+  totalAmount: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const CartModel = mongoose.model("Cart", cartschema);

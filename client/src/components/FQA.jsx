@@ -3,7 +3,6 @@ import "./fqa.css";
 import { useState } from "react";
 const FQA = () => {
   const [session, setsession] = useState(0);
-  console.log(session);
 
   return (
     <div className="fqa-sec">

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import useCustom from "./useCustom";
 import Products from "./Products";
 
-const Laptop = () => {
+const Accessories = () => {
   const { data, getProducts } = useCustom();
   useEffect(() => {
     getProducts();
@@ -21,4 +21,4 @@ const Laptop = () => {
   );
 };
 
-export default Laptop;
+export default Accessories;

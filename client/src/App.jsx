@@ -14,7 +14,6 @@ import Profile from "./components/Profile";
 function App() {
   const [cartpop, setcartpop] = useState(false);
   const [profilepop, setprofilepop] = useState(false);
-  // console.log(data.slice(1, 5));
   const { getProducts, data } = useCustom();
 
   useEffect(() => {
@@ -23,9 +22,6 @@ function App() {
 
   return (
     <>
-      <Navbar setcartpop={setcartpop} setprofilepop={setprofilepop} />
-      {cartpop && <Cart setcartpop={setcartpop} />}
-      {profilepop && <Profile setprofilepop={setprofilepop} />}
       <Home />
       <Brands />
       <div className="grid-con">
@@ -134,7 +130,7 @@ function App() {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

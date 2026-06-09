@@ -3,6 +3,8 @@ import React, { useState } from "react";
 const useCustom = () => {
   const url = import.meta.env.VITE_BACKEND_URL;
   const [data, setdata] = useState([]);
+  const [product, setproduct] = useState([]);
+  const [catrdt, setcatrdt] = useState([]);
 
   const addUser = async (dt) => {
     try {
@@ -130,11 +132,11 @@ const useCustom = () => {
     }
   };
 
-  const getCart = () => {
+  const getCart = (id) => {
     try {
-      fetch(`${url}/cart`)
+      fetch(`${url}/cart/${id}`)
         .then((res) => res.json())
-        .then((dt) => console.log(dt));
+        .then((dt) => setcatrdt(dt));
     } catch (error) {
       console.log(error);
     }
@@ -155,6 +157,42 @@ const useCustom = () => {
       console.log(error);
     }
   };
+  const updateCart = (dt) => {
+    try {
+      fetch(`${url}/cart/update`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dt),
+      })
+        .then((res) => res.json())
+        .then((dt) => console.log(dt));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const getsinglepro = (id) => {
+    try {
+      fetch(`${url}/product/${id}`)
+        .then((res) => res.json())
+        .then((dt) => setproduct(dt));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const deleteCart = (id) => {
+    try {
+      fetch(`${url}/cart/drop/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return {
     addUser,
     updateUser,
@@ -166,7 +204,12 @@ const useCustom = () => {
     deleteProduct,
     getCart,
     addcart,
+    updateCart,
+    deleteCart,
+    getsinglepro,
     data,
+    product,
+    catrdt,
   };
 };
 

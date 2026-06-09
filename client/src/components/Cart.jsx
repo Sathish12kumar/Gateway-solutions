@@ -1,26 +1,22 @@
 import { useState } from "react";
 import "./cart.css";
+import { useEffect } from "react";
+import useCustom from "./useCustom";
 const Cart = ({ setcartpop }) => {
-  const [quanity, setquanity] = useState(1);
-  const target = 9;
+  const uId = localStorage.getItem("userid");
+  const { getCart, catrdt, deleteCart, updateCart } = useCustom();
 
-  const removecart = () => {
-    if (quanity <= 1) setquanity(1);
-    else setquanity((val) => val - 1);
-  };
-  const addcart = () => {
-    if (quanity >= target) {
-      setquanity(1);
-    } else setquanity((prev) => prev + 1);
-  };
-
-  const deletecart = () => {
-    console.log("deleted");
+  const deletecart = (id) => {
+    deleteCart(id);
   };
 
   const ordered = () => {
     console.log("ordered");
   };
+
+  useEffect(() => {
+    getCart(uId);
+  });
 
   return (
     <div className="cart-sec">
@@ -31,21 +27,47 @@ const Cart = ({ setcartpop }) => {
         </button>
       </div>
       <div className="content-cart">
-        <div className="carts">
-          <img src="" alt="" />
-          <div className="info">
-            <div className="name">name</div>
-            <div className="cost">₹ 400</div>
-            <div className="quanity">
-              <button onClick={addcart}>+</button>
-              {quanity}
-              <button onClick={removecart}>-</button>
+        {catrdt.map((val) =>
+          val.items.map((dt, idx) => (
+            <div className="carts" key={idx}>
+              <img src={dt.image[0]} alt="" />
+              <div className="info">
+                <div className="name">{dt.name}</div>
+                <div className="cost">₹ {dt.price}</div>
+                <div className="quanity">
+                  <button
+                    onClick={async () => {
+                      await updateCart({
+                        userId: uId,
+                        productId: dt._id,
+                        quantity: dt.quantity + 1,
+                      });
+                      getCart(uId);
+                    }}
+                  >
+                    +
+                  </button>
+                  {dt.quantity}
+                  <button
+                    onClick={async () => {
+                      await updateCart({
+                        userId: uId,
+                        productId: dt._id,
+                        quantity: Math.max(dt.quantity - 1, 1),
+                      });
+                      getCart(uId);
+                    }}
+                  >
+                    -
+                  </button>
+                </div>
+              </div>
+              <button onClick={() => deletecart(val._id)}>
+                <i className="fa-solid fa-trash-can"></i>
+              </button>
             </div>
-          </div>
-          <button onClick={deletecart}>
-            <i className="fa-solid fa-trash-can"></i>
-          </button>
-        </div>
+          )),
+        )}
       </div>
       <div className="bottom">
         <div className="flex-box">
@@ -53,7 +75,18 @@ const Cart = ({ setcartpop }) => {
             <h4>Estimated total</h4>
             <p>Taxes, discounts and shipping calculated at checkout.</p>
           </div>
-          <div className="price">₹ 400</div>
+          <div className="price">
+            ₹{" "}
+            {catrdt?.reduce(
+              (sum, cart) =>
+                sum +
+                cart.items.reduce(
+                  (s, item) => s + item.price * item.quantity,
+                  0,
+                ),
+              0,
+            )}
+          </div>
         </div>
       </div>
       <div className="btn">

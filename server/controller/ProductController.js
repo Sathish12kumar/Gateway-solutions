@@ -40,3 +40,12 @@ export const deleteProduct = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+export const getsinglepro = async (req, res) => {
+  try {
+    const result = await ProductModel.findById(req.params.id);
+    res.send(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

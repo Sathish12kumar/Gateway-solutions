@@ -1,19 +1,19 @@
 export const navs = [
   {
     title: "Home",
-    path: "#",
+    path: "/",
   },
   {
     title: "Laptops",
-    path: "#",
+    path: "/laptop",
   },
   {
     title: "Mobiles",
-    path: "#",
+    path: "/mobile",
   },
   {
     title: "Accessories",
-    path: "#",
+    path: "/",
   },
 ];
 

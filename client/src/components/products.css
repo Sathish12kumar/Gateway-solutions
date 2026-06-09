@@ -6,7 +6,7 @@
   border-radius: 10px;
   padding: 10px;
   position: relative;
-  cursor: pointer;
+  /* cursor: pointer; */
   overflow: hidden;
   transition: 0.2s;
 
@@ -53,6 +53,7 @@
     .name {
       font-size: 25px;
       font-weight: 600;
+      cursor: pointer;
     }
     .price {
       font-size: 18px;

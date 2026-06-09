@@ -1,7 +1,5 @@
 import { useEffect } from "react";
-import Navbar from "./Navbar";
 import Products from "./Products";
-import Footer from "./Footer";
 import useCustom from "./useCustom";
 
 const Mobies = () => {
@@ -11,7 +9,6 @@ const Mobies = () => {
   }, []);
   return (
     <div className="laptop">
-      <Navbar />
       <div className="session">
         <h1>Mobile session</h1>
       </div>
@@ -20,7 +17,6 @@ const Mobies = () => {
           <Products val={val} key={idx} />
         ))}
       </div>
-      <Footer />
     </div>
   );
 };
