@@ -8,6 +8,8 @@ import ProductDetails from "./components/ProductDetails.jsx";
 import Laptop from "./components/Laptop.jsx";
 import Mobies from "./components/Mobies.jsx";
 import HomeLayout from "./HomeLayout.jsx";
+import Accessories from "./components/Accessories.jsx";
+import Details from "./components/Details.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -17,7 +19,9 @@ createRoot(document.getElementById("root")).render(
           <Route index element={<App />} />
           <Route path="laptop" element={<Laptop />} />
           <Route path="mobile" element={<Mobies />} />
+          <Route path="accessories" element={<Accessories />} />
           <Route path="product-detail/:ids" element={<ProductDetails />} />
+          <Route path="addproduct" element={<Details />} />
         </Route>
         <Route path="/login" element={<AuthLayout />} />
         <Route path="/register" element={<Register />} />

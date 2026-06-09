@@ -1,10 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import "./products.css";
+import useCustom from "./useCustom";
 const Products = ({ val }) => {
+  const uId = localStorage.getItem("userid");
   const changepath = useNavigate();
+  const { addcart, product } = useCustom();
 
-  const cartpro = () => {
-    console.log("cart products");
+  const cartpro = (data) => {
+    addcart({
+      user: uId,
+      items: [...product, data],
+    });
   };
   const viewpro = () => {
     console.log("view products");
@@ -24,7 +30,7 @@ const Products = ({ val }) => {
         </div>
       </div>
       <div className="btns">
-        <button onClick={() => cartpro()}>
+        <button onClick={() => cartpro(val)}>
           <i className="fa-solid fa-bag-shopping"></i>
         </button>
         <button onClick={() => viewpro()}>

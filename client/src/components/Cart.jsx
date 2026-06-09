@@ -40,12 +40,12 @@ const Cart = ({ setcartpop }) => {
                       await updateCart({
                         userId: uId,
                         productId: dt._id,
-                        quantity: dt.quantity + 1,
+                        quantity: Math.max(dt.quantity - 1, 1),
                       });
                       getCart(uId);
                     }}
                   >
-                    +
+                    -
                   </button>
                   {dt.quantity}
                   <button
@@ -53,12 +53,12 @@ const Cart = ({ setcartpop }) => {
                       await updateCart({
                         userId: uId,
                         productId: dt._id,
-                        quantity: Math.max(dt.quantity - 1, 1),
+                        quantity: dt.quantity + 1,
                       });
                       getCart(uId);
                     }}
                   >
-                    -
+                    +
                   </button>
                 </div>
               </div>

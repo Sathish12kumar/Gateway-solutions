@@ -10,7 +10,7 @@ const Accessories = () => {
   return (
     <div className="laptop">
       <div className="session">
-        <h1>laptop session</h1>
+        <h1>Accessories session</h1>
       </div>
       <div className="lap-flex">
         {data?.map((val, idx) => (

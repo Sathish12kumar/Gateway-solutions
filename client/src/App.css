@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 :root {
   --main-color: black;
 }
@@ -145,7 +150,6 @@ button {
   .main {
     grid-row: span 3;
     grid-column: span 2;
-    /* background: red; */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -186,4 +190,8 @@ button {
   align-items: center;
   justify-content: space-around;
   margin: 20px 0;
+}
+
+.latest-pro {
+  padding: 20px;
 }

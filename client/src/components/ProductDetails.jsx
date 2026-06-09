@@ -3,16 +3,13 @@ import "./prodetail.css";
 import Products from "./Products";
 import useCustom from "./useCustom";
 import { useParams } from "react-router-dom";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
 
 const ProductDetails = () => {
   const uId = localStorage.getItem("userid");
   const [quanity, setquanity] = useState(1);
   const { ids } = useParams();
 
-  const { getProducts, data, addcart, updateCart, getsinglepro, product } =
-    useCustom();
+  const { getProducts, data, addcart, getsinglepro, product } = useCustom();
   const cartBody = {
     user: uId,
     items: [
@@ -33,14 +30,13 @@ const ProductDetails = () => {
     } else setquanity((prev) => prev + 1);
   };
   const addtocart = () => {
-    console.log("added to cart");
-    console.log(product);
     addcart(cartBody);
   };
 
   useEffect(() => {
     getProducts();
     getsinglepro(ids);
+    scrollTo(0, 0);
   }, [ids]);
   return (
     <div className="product-details">

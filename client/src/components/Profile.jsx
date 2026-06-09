@@ -11,11 +11,11 @@ const Profile = ({ setprofilepop }) => {
         </button>
       </div>
       <div className="content">
-        <div className="name">hello! {username}</div>
-        <div className="email">{usermail}</div>
+        <div className="name">Name: {username}</div>
+        <div className="email">Email: {usermail}</div>
       </div>
       <div className="btns">
-        <button>update</button>
+        {/* <button>update</button> */}
         <button onClick={() => localStorage.clear()}>logout</button>
       </div>
     </div>

@@ -1,5 +1,5 @@
 .profile {
-  background: red;
+  background: white;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -8,24 +8,33 @@
   width: 400px;
   height: 300px;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
-  /* gap: 10px; */
-
+  .content {
+    padding: 10px;
+  }
   .title {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-transform: capitalize;
   }
   .btns {
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 100%;
+    button {
+      background: red;
+      text-transform: capitalize;
+      letter-spacing: 1px;
+      color: white;
+      font-weight: bold;
+    }
   }
   .name,
   .email {

@@ -13,7 +13,11 @@ export const navs = [
   },
   {
     title: "Accessories",
-    path: "/",
+    path: "/accessories",
+  },
+  {
+    title: "Add Product",
+    path: "/addproduct",
   },
 ];
 

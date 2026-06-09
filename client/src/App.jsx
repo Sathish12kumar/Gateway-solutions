@@ -71,7 +71,7 @@ function App() {
         </div>
       </div>
       <div className="latest-pro">
-        <h1>Reacent Products</h1>
+        <h1 style={{ textAlign: "center" }}>Reacent Products</h1>
         <div className="flex-pro">
           {data.slice(5, 9).map((val, idx) => (
             <Products val={val} key={idx} />
@@ -130,7 +130,6 @@ function App() {
           </div>
         </div>
       </div>
-      {/* <Footer /> */}
     </>
   );
 }
