@@ -1,11 +1,13 @@
-const express = require("express");
-const { connectDB } = require("./config/Connect");
-const UserRouter = require("./routers/UserRouter");
-const productRouter = require("./routers/ProductRouter");
-const CartRouter = require("./routers/CartRouter");
-const authRouter = require("./routers/AuthRouter");
-require("dotenv").config();
-const cors = require("cors");
+import express from "express";
+import { connectDB } from "./config/Connect.js";
+import UserRouter from "./routers/UserRouter.js";
+import productRouter from "./routers/ProductRouter.js";
+import CartRouter from "./routers/CartRouter.js";
+import authRouter from "./routers/AuthRouter.js";
+import dotenv from "dotenv";
+import cors from "cors";
+
+dotenv.config();
 
 const app = express();
 app.use(express.json());

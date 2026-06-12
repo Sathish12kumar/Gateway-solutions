@@ -1,10 +1,10 @@
-const express = require("express");
-const {
+import express from "express";
+import {
   getUsers,
   createUser,
   updateUser,
   deleteUser,
-} = require("../controller/UserController");
+} from "../controller/UserController.js";
 
 const UserRouter = express.Router();
 
@@ -13,4 +13,4 @@ UserRouter.post("/add", createUser);
 UserRouter.put("/update/:id", updateUser);
 UserRouter.delete("/drop/:id", deleteUser);
 
-module.exports = UserRouter;
+export default UserRouter;
