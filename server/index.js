@@ -9,7 +9,11 @@ const cors = require("cors");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.MONGODB_URL,
+  }),
+);
 
 connectDB();
 
@@ -21,3 +25,5 @@ app.use("/auth", authRouter);
 app.listen(9000, () => {
   console.log("server running 9000");
 });
+
+export default app;
